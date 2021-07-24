@@ -1,0 +1,534 @@
+// var db = firebase.firestore();
+  // var docRef = db.doc("mainCategory/strategy/subCategory/code/");
+
+  // docRef
+  //   .get()
+  //   .then(function (doc) {
+  //     if (doc.exists) {
+  //       console.log(doc.data().text);
+  //     } else {
+  //       console.log("no such document");
+  //     }
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+
+  // dispatch({
+  //   type: "LOAD_CATEGORIES",
+  // });
+
+  // function loadCategories() {
+  //   return (dispatch, getState, { getFirebase }) => {
+  //     const ref = getFirebase().firestore().collection("mainCategory");
+  //     ref.onSnapshot((querySnapshot) => {
+  //       const items = [];
+  //       querySnapshot
+  //         .forEach((doc) => {
+  //           items.push(doc.data());
+  //         })
+  //         .then(() => {
+  //           dispatch({ type: "LOAD_CATEGORIES" });
+  //         });
+  //       setMainCategory(items);
+  //     });
+  //   };
+  // }
+
+  // const mapStateToProps = (state) => ({
+//   mainCategoryState: state.redux.mainCategoryState,
+// });
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     mainCategory: () => dispatch(loadCategories()),
+//   };
+// };
+
+/* <Link to="/next">
+   <button onClick={props.buyCake}>next</button>
+ </Link>
+ <button onClick={props.buyCake}>Buy Cake</button>*/
+
+
+ <label>testButton: </label>
+      <button onClick={() => setMainCategoryState(1)}>
+        {" "}
+        {mainCategoryState}
+      </button>
+      <br></br>
+      <br></br>
+
+       //by decision ONCLICK save mainCategoryState
+  const [mainCategoryState, setMainCategoryState] = useState("---");
+
+  
+import { BUY_STRATEGY, LOAD_CATEGORIES } from "../actions/mainCategoryTypes";
+import { BUY_MOTIVATION } from "../actions/mainCategoryTypes";
+
+const inititalState = {
+  mainCategory: [],
+};
+
+// const categoryState = {
+//   categoryList: [],
+// };
+
+const mainCategoryReducer = (state = inititalState, action) => {
+  switch (action.type) {
+    case BUY_STRATEGY:
+      return {
+        ...state,
+        numOfStrategies: "strategy",
+      };
+
+    case BUY_MOTIVATION:
+      return {
+        ...state,
+        mainCategory: [...state.mainCategory, action.payload],
+      };
+
+    case LOAD_CATEGORIES:
+      return {
+        ...state,
+        mainCategory: [...state.mainCategory, action.payload],
+      };
+
+    default:
+      return state;
+  }
+};
+
+// Add firebase to reducers
+// export default combineReducers({
+//   firebase: firebaseReducer,
+//   // firestore: firestoreReducer // <- needed if using firestore
+// })
+
+export function loadCategories() {
+  return (dispatch, getState, { getFirebase }) => {
+    const ref = getFirebase().firestore().collection("mainCategory");
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot
+        .forEach((doc) => {
+          items.push(doc.data());
+        })
+        .then(() => {
+          dispatch({ type: LOAD_CATEGORIES });
+        });
+    });
+  };
+}
+
+// .then((doc) => {
+//   if (doc.exists) {
+//     const data = doc.data();
+//     console.log(data);
+//     dispatch({ type: "LOAD_CATEGORIES", data });
+//   } else {
+//     console.log("does not exist");
+//   }
+// });
+
+thunk.withExtraArgument({ getFirebase })
+
+{mainCategory.map((mainCategory) => (
+        <div key={mainCategory.id}>
+          {/* <Link to="/subCategory"> */}
+          <Button
+            text={mainCategory.label}
+            // function={() => setMainCategoryState(mainCategory.id)}
+            function={takeStrategy}
+          ></Button>
+          {/* </Link> */}
+        </div>
+      ))}
+
+       <label>{mainCategoryState}</label>
+
+        //get necessary state from store
+  const [mainCategoryState, setMainCategoryState] = useState([]);
+
+// const [takeDecision, setTakeDecision] = useState([
+  //   props.takeStrategy,
+  //   props.takeMotivation,
+  // ]);
+
+  {/* {concentration.map((concentration) => (
+        <div key={concentration.id}>
+          <h2>{concentration.solution}</h2>
+        </div>
+      ))} */}
+
+      {/* <Label text="Error"></Label>
+        <Text id="splitHeading" text="Wähle eine Option aus:"></Text>
+        <SolutionTable></SolutionTable>
+        <Link to="/praise">
+          <Button text="Weiter"></Button>
+        </Link> */}
+
+         {/* <Link to="/solution">
+      <button onClick={props.clickOnASK}>Ask</button>
+    </Link>
+    <Link to="/solution">
+      <button onClick={props.clickOnCODE}>Code</button>
+    </Link>
+    <br></br> */}
+
+      {/* {subCategory.map((subCategory) => (
+        <div key={subCategory.id}>
+          <Button text={subCategory.label}></Button>
+        </div>
+      ))} */}
+
+      {/* <label>Decision: {props.mainCategoryDecision}</label> */}
+
+      {/* <h2>Number of cakes - {props.numOfStrategies}</h2>
+      <br></br>
+      <Link to="/subCategory">
+        <Button
+          text={props.numOfStrategies}
+          // function={props.loadCategories}
+        ></Button>
+      </Link> */}
+
+       <br></br>
+      <br></br>
+      {/* <h2>Decision- {props.mainCategoryDecision}</h2> */}
+
+      {/* {mainCategory.map((mainCategory) => (
+        <div key={mainCategory.id}>
+          <Link to="/subCategory">
+            <Button
+              text={mainCategory.label}
+              // function={() => setMainCategory(mainCategory.id)}
+              function={mainCategory.function}
+            ></Button>
+          </Link>
+        </div>
+      ))} */}
+
+         // clickOnCONCEPT: () => dispatch(clickOnCONCEPT()),
+    // clickOnERROR: () => dispatch(clickOnERROR()),
+    // clickOnGENERAL: () => dispatch(clickOnGENERAL()),
+    // clickOnLEARN: () => dispatch(clickOnLEARN()),
+
+     // //set state for different screen
+  // const [mainCategoryState, setMainCategoryState] = useState("---");
+
+  // console.log(props);
+  // console.log(props.mainCategoryDecision);
+
+  //data from within local state (aready here) , second mainCategory = document
+
+   // setTakeDecision([takeStrategy, takeMotivation]);
+
+   // const [mainCategoryDecision, setIsLoggedIn] = useState(false);
+
+  // if (decsion === 1){
+  //   load ask/code
+  // }
+  // else
+  //   load concentration/stress
+
+  //  let input = "";
+
+  // if (props.mainCategoryDecision === 1) {
+  //   render ask/code in html
+  // //   input = "mainCategory/strategy/subCategory";
+  // // } else {
+  // //   input = "mainCategory/motivation/subCategory";
+  // render conc/stress in html
+  // // }
+
+  // const ref = firebase
+  //   .firestore()
+  //   // .collection("mainCategory/strategy/subCategory");
+  //   .collection("mainCategory/strategy/subCategory");
+
+  // const db = firebase.firestore();
+  // db.collection(input)
+  //   .get()
+  //   .then(function (querySnapshot) {
+  //     const items = [];
+  //     querySnapshot.forEach(function (doc) {
+  //       items.push(doc.data());
+  //       // console.log(doc.label, " => ", doc.data());
+  //     });
+  //     setSubCategory(items);
+  //   });
+
+  // function getSubCategory() {
+  //   ref.onSnapshot((querySnapshot) => {
+  //     const items = [];
+  //     querySnapshot.forEach((doc) => {
+  //       items.push(doc.data());
+  //     });
+  //     setSubCategory(items);
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   getSubCategory();
+  // }, []);
+
+  // clickOnCONCEPT: () => dispatch(clickOnCONCEPT()),
+    // clickOnERROR: () => dispatch(clickOnERROR()),
+    // clickOnGENERAL: () => dispatch(clickOnGENERAL()),
+    // clickOnLEARN: () => dispatch(clickOnLEARN()),
+    
+  // const db = firebase.firestore();
+  // db.collection(input)
+  //   .get()
+  //   .then(function (querySnapshot) {
+  //     const items = [];
+  //     querySnapshot.forEach(function (doc) {
+  //       items.push(doc.data());
+  //       // console.log(doc.label, " => ", doc.data());
+  //     });
+  //     setConcentration(items);
+  //   });
+
+  //load data
+  // const [concentrationSolutions, setConcentrationSolutions] = useState([]);
+
+  // const ref = firebase
+  //   .firestore()
+  //   .collection(
+  //     "mainCategory/motivation/subCategory/concentration/concentrationSolutions"
+  //   );
+  // // console.log(ref);
+
+  // function getSolutions() {
+  //   ref.onSnapshot((querySnapshot) => {
+  //     const items = [];
+  //     querySnapshot.forEach((doc) => {
+  //       items.push(doc.data());
+  //     });
+  //     setConcentrationSolutions(items);
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   getSolutions();
+  // }, []);
+
+ const renderAuthButton = () => {
+    if (isLoggedIn) {
+      return (
+        <div>
+          <button onClick={props.clickOnASK}>Ask</button>
+          <button onClick={props.clickOnCODE}>Code</button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={props.clickOnASK}>Concentration</button>
+          <button onClick={props.clickOnCODE}>Stress</button>
+        </div>
+      );
+    }
+  };
+
+   // function={() => setMainCategory(mainCategory.id)}
+
+   // const [concentration, setConcentration] = useState([]);
+
+   // var db = firebase.firestore();
+  // var docRef = db.collection(input);
+  // console.log(input);
+
+  // docRef
+  //   .get()
+  //   .then(function (collection) {
+  //     if (collection.exists) {
+  //       console.log(collection.data().id);
+  //     } else {
+  //       console.log("no such collection");
+  //     }
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+
+  SolutionScreen:
+   // //local state
+  // const [askSolutions, setAskSolutions] = useState([]);
+  // // const [isLoggedIn, setIsLoggedIn] = useState(props.subCategoryDecision);
+
+  // // // const renderAuthButton = () => {
+  // // //   if (isLoggedIn === 3) {
+  // // //   } else {
+  // // //   }
+  // // // };
+
+  // //let input = "mainCategory/strategy/subCategory/code/codeSolutions";
+  // let input = "";
+  // if (props.subCategoryDecision === 3) {
+  //   input = "mainCategory/strategy/subCategory/ask/1";
+  // } else {
+  //   input = "mainCategory/strategy/subCategory/code/codeSolutions";
+  // }
+
+  // const ref = firebase.firestore().collection(input);
+
+  // // //load data
+  // function getAskSolutions() {
+  //   ref.onSnapshot((querySnapshot) => {
+  //     const items = [];
+  //     querySnapshot.forEach((doc) => {
+  //       items.push(doc.data());
+  //     });
+  //     setAskSolutions(items);
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   getAskSolutions();
+  // }, []);
+
+
+ <div className="screen">
+      <h2>Decision- {props.subCategoryDecision}</h2>
+
+      <label>Wähle eine Lösung aus: </label>
+      <br></br>
+      <br></br>
+      {askSolutions.map((askSolutions) => (
+        <div key={askSolutions.id}>
+          <Link to="/praise">
+            <Button
+              text={askSolutions.solution}
+              function={askSolutions.function}
+            ></Button>
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+//global state from store
+const mapStateToProps = (state) => {
+  return {
+    subCategoryDecision: state.sub.subCategoryDecision,
+    solutionDecision: state.sol.solutionDecision,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    takeSolution1: () => dispatch(takeSolution1()),
+    takeSolution2: () => dispatch(takeSolution2()),
+  };
+};
+
+solutionScreen:
+//   const [state, setState] = useState([]);
+  //   return <div></div>;
+  // }
+
+  // const mapStateToProps = (state) => {
+  //   console.log(state);
+  //   const mainCategory = state.firestore.ordered.mainCategory;
+
+  return <div></div>;
+  // export default compose(
+//   connect(mapStateToProps),
+//   firestoreConnect((ownProps) => [
+//     {
+//       collection: "mainCategory",
+//       orderBy: ["id", "desc"],
+//     },
+//   ])
+// )(SolutionScreen);
+
+
+//export default connect(mapStateToProps, mapDispatchToProps)(SolutionScreen);
+
+// const loadCode = () => {
+  //   props.clickOnCODE();
+  // };
+  // const loadAsk = () => {
+  //   props.clickOnASK();
+  // };
+
+//array
+// const items = [];
+
+// //Action creators
+// export const clickOnASK = (mainCategory) => {
+//   return (dispatch, getState, { getFirebase }) => {
+//     //async call to db
+//     const firestore = getFirebase().firestore();
+//     firestore
+//       .collection("mainCategory")
+//       .get()
+//       .then(function (querySnapshot) {
+//         querySnapshot.forEach(function (doc) {
+//           //console.log(doc.id, " => ", doc.data());
+//           items.push(doc.data());
+//         });
+//         mainCategory = items;
+//       })
+//       .then(() => {
+//         dispatch({
+//           type: clickASK,
+//           mainCategory: mainCategory,
+//           //solutions: solutions,
+//         });
+//       })
+//       .catch((error) => {
+//         dispatch({
+//           type: ERROR,
+//           error,
+//         });
+//       });
+//     // dispatch({ type: "clickASK" });
+//   };
+// };
+// export const clickOnCODE = () => {
+//   return (dispatch, getState, { getFirebase }) => {
+//     //async call to db
+//     const firestore = getFirebase().firestore();
+//     firestore
+//       .collection("mainCategory/strategy/subCategory/code/codeSolutions")
+//       .get()
+//       .then(function (querySnapshot) {
+//         querySnapshot.forEach(function (doc) {
+//           //  console.log(doc.id, " => ", doc.data());
+//         });
+//       })
+//       .then(() => {
+//         dispatch({
+//           type: clickCODE,
+//         });
+//       })
+//       .catch((error) => {
+//         dispatch({
+//           type: ERROR,
+//           error,
+//         });
+//       });
+//     // dispatch({ type: "clickASK" });
+//   };
+// };
+
+launch.json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // "command": "npm start",
+            // "name": "Run npm start",
+            // "request": "launch",
+            "type": "node-terminal"
+        }
+
+    ]
+}
