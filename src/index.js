@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/storage";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import store from "./redux/store";
 import { createFirestoreInstance } from "redux-firestore";
@@ -30,6 +31,7 @@ const rrfProps = {
 
 firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
+
 
 ReactDOM.render(
   <React.StrictMode>

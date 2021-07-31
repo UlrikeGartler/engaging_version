@@ -14,7 +14,7 @@ export function MainCategoryScreen(props) {
   var storageRef = firebase.storage().ref();
 
   storageRef
-    .child("Bilder/Strategiebild/chess-316658_1280.jpg")
+    .child("Bilder/Strategiebild/chess-316658_1280smaller.jpg")
     .getDownloadURL()
     .then(function (url) {
       var img = document.getElementById("firstImage");

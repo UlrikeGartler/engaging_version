@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import { Button } from "../core-components/Button";
-import { BrowserRouter, Route, Switch, Link, Redirect } from "react-router-dom";
+import {  Link} from "react-router-dom";
 import firebase from "firebase";
 import { connect } from "react-redux";
-import { buyStrategy } from "../redux/actions/mainCategoryActions";
+
 
 export function SupportScreen(props) {
   //load mainCategoryCollectionData from database
   //put it into state
   //pass state to store
 
-  var storageRef = firebase.storage().ref();
+  var storage = firebase.storage();
+
+  var storageRef = storage.ref();
 
   storageRef
-    .child("Bilder/Supportbild/group-2351896_1280.jpg")
+    .child("Bilder/Supportbild/group-2351896_1280evensmaller.jpg")
     .getDownloadURL()
     .then(function (url) {
       var img = document.getElementById("firstImage");

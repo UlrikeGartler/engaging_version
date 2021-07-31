@@ -6,7 +6,7 @@ import firebase from "firebase";
 
 export function PraiseScreen(props) {
   //storageReference
-  var storageRef = firebase.storage().ref("Bilder/Lobbild/award-5572089_1280.png");
+  var storageRef = firebase.storage().ref("Bilder/Lobbild/award-5572089_1280.jpg");
 
   storageRef
     //.child()

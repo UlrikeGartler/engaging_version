@@ -20,16 +20,16 @@ export function SolutionScreen(props) {
     pic = "Fragen/icon-1332777_1920.png";
   } else if (props.subCategoryDecision === 2) {
     input = "mainCategory/strategy/subCategory/code/codeSolutions";
-    pic = "Code/hexagon-2307350_1280.png";
+    pic = "Code/hexagon-2307350_1280.jpg";
   } else if (props.subCategoryDecision === 3) {
     input = "mainCategory/strategy/subCategory/concept/conceptSolutions";
-    pic = "Konzept/games-2399904_1920.png";
+    pic = "Konzept/games-2399904_1920.jpg";
   } else if (props.subCategoryDecision === 4) {
     input = "mainCategory/strategy/subCategory/error/solutions";
-    pic = "Error/rejected-2858656_1920.png";
+    pic = "Error/rejected-2858656_1920.jpg";
   } else if (props.subCategoryDecision === 5) {
     input = "mainCategory/strategy/subCategory/general/generalSolutions";
-    pic = "Lernen/book-308048_1280.png";
+    pic = "Lernen/book-308048_1280.jpg";
   } else if (props.subCategoryDecision === 6) {
     input = "mainCategory/strategy/subCategory/learn/learningSolutions";
     pic = "Strategie/paper-1976101_1280.png";
