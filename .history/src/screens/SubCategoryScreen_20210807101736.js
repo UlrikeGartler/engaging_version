@@ -49,134 +49,6 @@ function useImageCodeUrl(ref) {
   return data
 }
 
-async function fetchImageConceptUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageConceptUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageConceptUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  console.log(data);
-  return data
-}
-
-async function fetchImageErrorUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageErrorUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageErrorUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  console.log(data);
-  return data
-}
-
-async function fetchImageStrategyUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageStrategyUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageStrategyUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  console.log(data);
-  return data
-}
-
-async function fetchImageLearnUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageLearnUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageLearnUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  console.log(data);
-  return data
-}
-
-async function fetchImageConcentrationUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageConcentrationUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageConcentrationUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  console.log(data);
-  return data
-}
-
-async function fetchImageStressUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageStressUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageStressUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  console.log(data);
-  return data
-}
-
-async function fetchImageMotivationUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageMotivationUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageMotivationUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  console.log(data);
-  return data
-}
-
-async function fetchImageGeneralUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageGeneralUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageGeneralUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  console.log(data);
-  return data
-}
-
 export function SubCategoryScreen(props) {
   console.log(props.mainCategoryDecision);
 
@@ -212,28 +84,28 @@ export function SubCategoryScreen(props) {
             function={props.clickOnCODE}
           ></Button>
           <br></br>
-          <img id="concept" alt="concept" height="50" width="50" src={conceptUrl}/>
+          <img id="concept" alt="concept" height="50" width="50" />
           <br></br>
           <Button
             text="Ich kenne so viele Konzepte nicht."
             function={props.clickOnCONCEPT}
           ></Button>
           <br></br>
-          <img id="error" alt="error" height="50" width="50" src={errorUrl}/>
+          <img id="error" alt="error" height="50" width="50" />
           <br></br>
           <Button
             text="Ich finde die Lösung für den Error nicht."
             function={props.clickOnERROR}
           ></Button>
           <br></br>
-          <img id="strategy" alt="error" height="50" width="50" src={strategyUrl}/>
+          <img id="strategy" alt="error" height="50" width="50" />
           <br></br>
           <Button
             text="Ich brauche generell Coding-Strategien."
             function={props.clickOnGENERAL}
           ></Button>
           <br></br>
-          <img id="learn" alt="error" height="50" width="50" src={learnUrl}/>
+          <img id="learn" alt="error" height="50" width="50" />
           <br></br>
           <Button
             text="Ich brauche Ideen für Lernstrategien."
@@ -244,28 +116,28 @@ export function SubCategoryScreen(props) {
     } else {
       return (
         <div>
-          <img id="concentration" alt="error" height="50" width="50" src={concentrationUrl}/>
+          <img id="concentration" alt="error" height="50" width="50" />
           <br></br>
           <Button
             text="Ich kann mich nicht konzentrieren."
             function={props.clickOnConcentration}
           ></Button>
           <br></br>
-          <img id="stress" alt="error" height="50" width="50" src={stressUrl}/>
+          <img id="stress" alt="error" height="50" width="50" />
           <br></br>
           <Button
             text="Ich bin gestresst."
             function={props.clickOnStress}
           ></Button>
           <br></br>
-          <img id="motivation" alt="error" height="50" width="50" src={motivationUrl}/>
+          <img id="motivation" alt="error" height="50" width="50" />
           <br></br>
           <Button
             text="Ich kann mich nicht motivieren."
             function={props.clickOnMotivation}
           ></Button>
           <br></br>
-          <img id="serious" alt="error" height="50" width="50" src={generalUrl}/>
+          <img id="serious" alt="error" height="50" width="50" />
           <br></br>
           <Button
             text="Ich nehme die Dinge zu ernst."
@@ -278,12 +150,17 @@ export function SubCategoryScreen(props) {
 
   return (
     <div className="screen">
-     
+      {/* <h2>Decision- {props.mainCategoryDecision}</h2> */}
       <label>Bitte konkretisiere deinen Unterstützungsbereich: </label>
       <br></br>
       <br></br>
       <Link to="/solution">{renderAuthButton()}</Link>
-     
+      {/* <Link to="/solution">
+        <button onClick={props.clickOnASK}>Ask</button>
+      </Link>
+      <Link to="/solution">
+        <button onClick={props.clickOnCODE}>Code</button>
+      </Link> */}
     </div>
   );
 }

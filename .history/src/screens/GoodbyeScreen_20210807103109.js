@@ -25,6 +25,15 @@ export function GoodbyeScreen(props) {
   const url = useImageUrl("Bilder/Feierabendbild/feet-932346_1920.jpg")
   
 
+  storageRef
+    //.child()
+    .getDownloadURL()
+    .then(function (url) {
+      var img = document.getElementById("rest");
+      img.src = url;
+    })
+    .catch(function (error) {});
+
   return (
     <div className="screen">
       <Text text="Schönen Feierabend, "> </Text>

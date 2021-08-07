@@ -24,8 +24,11 @@ function useImageUrl(ref) {
 
 export function SolutionScreen(props) {
 
+
   let input = "";
   var url = "";
+
+
 
   if (props.subCategoryDecision === 1) {
    input = "mainCategory/strategy/subCategory/ask/1";

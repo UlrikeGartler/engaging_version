@@ -278,12 +278,17 @@ export function SubCategoryScreen(props) {
 
   return (
     <div className="screen">
-     
+      {/* <h2>Decision- {props.mainCategoryDecision}</h2> */}
       <label>Bitte konkretisiere deinen Unterstützungsbereich: </label>
       <br></br>
       <br></br>
       <Link to="/solution">{renderAuthButton()}</Link>
-     
+      {/* <Link to="/solution">
+        <button onClick={props.clickOnASK}>Ask</button>
+      </Link>
+      <Link to="/solution">
+        <button onClick={props.clickOnCODE}>Code</button>
+      </Link> */}
     </div>
   );
 }

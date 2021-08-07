@@ -22,12 +22,22 @@ function useImageUrl(ref) {
 }
 
 export function SupportScreen(props) {
-  const url = useImageUrl("Bilder/Supportbild/group-2351896_1280.jpg")
-    
+ 
+
+  var storageRef = firebase.storage().ref();
+
+  storageRef
+    .child("Bilder/Supportbild/group-2351896_1280.jpg")
+    .getDownloadURL()
+    .then(function (url) {
+      var img = document.getElementById("firstImage");
+      img.src = url;
+    })
+    .catch(function (error) {});
 
   return (
     <div className="screen">
-      <img id="firstImage" alt="landscape" height="120" width="120"  src={url}/>
+      <img id="firstImage" alt="landscape" height="120" width="120" />
       <br></br>
       <Link to="/mainCategory">
         <Button id="supportButton" text="Ich brauche Unterstützung"></Button>

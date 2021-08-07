@@ -41,7 +41,7 @@ function useImageMotivationUrl(ref) {
 export function MainCategoryScreen(props) {
 
 
-      const urlStrategy = useImageStrategyUrl("Bilder/Strategiebild/chess-316658_1280.jpg");
+      const urlStrategy = useImageStrategyUrl("Strategiebild/chess-316658_1280.jpg");
       const urlMotivation = useImageMotivationUrl("Bilder/Motivationsbild/sport-1412163_1920.jpg");
  
   return (

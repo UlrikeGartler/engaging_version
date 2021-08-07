@@ -24,8 +24,11 @@ function useImageUrl(ref) {
 
 export function SolutionScreen(props) {
 
+
   let input = "";
   var url = "";
+
+
 
   if (props.subCategoryDecision === 1) {
    input = "mainCategory/strategy/subCategory/ask/1";
@@ -83,9 +86,10 @@ export function SolutionScreen(props) {
     <div className="screen">
       <h1>
         <img id="id" alt="test" height="50" width="50" src={url}/>
-        Lösungsvorschläge
+        Solutions
       </h1>
 
+      {/* <Link to="/praise"> */}
       {solutions.map((solutions) => (
         <div key={solutions.id}>
           <Link to="/praise">
@@ -93,6 +97,7 @@ export function SolutionScreen(props) {
           </Link>
         </div>
       ))}
+      {/* </Link> */}
     </div>
   );
 }

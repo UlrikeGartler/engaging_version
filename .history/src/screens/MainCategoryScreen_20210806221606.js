@@ -9,41 +9,33 @@ import {
 } from "../redux/actions/mainCategoryActions";
 import {useQuery} from "react-query"
 
-async function fetchImageStrategyUrl(ref) {
+async function fetchImageUrl(ref) {
   const storageRef = firebase.storage().ref(ref);
   const url = await storageRef.getDownloadURL()
   return url
 }
 
-function useImageStrategyUrl(ref) {
+function useImageUrl(ref) {
   const {data} = useQuery(
     ref, // key
-    () => fetchImageStrategyUrl(ref), // fetcher
+    () => fetchImageUrl(ref), // fetcher
     {suspense: true} // options
   )
   return data
 }
 
-async function fetchImageMotivationUrl(ref) {
-  const storageRef = firebase.storage().ref(ref);
-  const url = await storageRef.getDownloadURL()
-  return url
-}
-
-function useImageMotivationUrl(ref) {
-  const {data} = useQuery(
-    ref, // key
-    () => fetchImageMotivationUrl(ref), // fetcher
-    {suspense: true} // options
-  )
-  return data
-}
 export function MainCategoryScreen(props) {
-
-
-      const urlStrategy = useImageStrategyUrl("Bilder/Strategiebild/chess-316658_1280.jpg");
-      const urlMotivation = useImageMotivationUrl("Bilder/Motivationsbild/sport-1412163_1920.jpg");
  
+  var url = "";
+
+  if (props.mainCategoryDecision === 1) {
+     url = useImageUrl("Bilder/Strategiebild/chess-316658_1280.jpg");
+  }else {
+      url = useImageUrl("Bilder/Motivationsbild/sport-1412163_1920.jpg");
+  };
+
+
+
   return (
     <div className="screen">
       {/* <h2>Decision- {props.mainCategoryDecision}</h2> */}
@@ -53,14 +45,14 @@ export function MainCategoryScreen(props) {
       </label>
       <br></br>
       <br></br>
-      <img id="firstImage" alt="landscape" height="72" width="109" src={urlStrategy}/>
+      <img id="firstImage" alt="landscape" height="72" width="109" src={url}/>
       <br></br>
       <Link to="/subCategory">
         <Button text="Strategien" function={props.takeStrategy}></Button>
       </Link>
       <br></br>
       <br></br>
-      <img id="secondImage" alt="landscape" height="71" width="109" src={urlMotivation}/>
+      <img id="secondImage" alt="landscape" height="71" width="109" src={url}/>
       <br></br>
       <Link to="/subCategory">
         <Button text="Motivation" function={props.takeMotivation}></Button>
