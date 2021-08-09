@@ -14,14 +14,8 @@ body {
 
 .App {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
+  
 }
-
-#spinner {
-margin-top: 200px;
-display: inline-block;
-}
-
 
 #react-app {
   border-style: dotted;

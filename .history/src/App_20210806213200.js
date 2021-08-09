@@ -13,8 +13,6 @@ import { PraiseScreen } from "./screens/PraiseScreen";
 import { GoodbyeScreen } from "./screens/GoodbyeScreen";
 import { WelcomeScreen } from "./screens/WelcomeScreen";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { CustomizedBeatLoader} from "./screens/CustomizedBeatLoader";
-
 
 function App() {
   return (
@@ -22,7 +20,7 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <div className="App">
-          <Suspense fallback={<div id="spinner" >Loading</div>}> 
+            <Suspense fallback={<p>Loading...</p>}>
               <Route path="/welcome" exact strict component={WelcomeScreen} />
               <Route path="/support" exact strict component={SupportScreen} />
               <Route

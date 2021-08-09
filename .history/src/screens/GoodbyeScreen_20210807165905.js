@@ -30,7 +30,7 @@ export function GoodbyeScreen(props) {
       <Text text="Schönen Feierabend, "> </Text>
       <Text text="Junior Developer!"> </Text>
 
-      <img id="rest" alt="rest" height="100" width="125" src={url}/>
+      <img id="rest" alt="rest" height="100" width="120" src={url}/>
       <br></br>
 
       <Link to="/welcome">

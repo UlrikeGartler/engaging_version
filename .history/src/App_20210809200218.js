@@ -22,7 +22,7 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <div className="App">
-          <Suspense fallback={<div id="spinner" >Loading</div>}> 
+          <Suspense fallback={<CustomizedBeatLoader id="spinner" size={18}></CustomizedBeatLoader>}> 
               <Route path="/welcome" exact strict component={WelcomeScreen} />
               <Route path="/support" exact strict component={SupportScreen} />
               <Route

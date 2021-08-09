@@ -13,7 +13,16 @@ import { PraiseScreen } from "./screens/PraiseScreen";
 import { GoodbyeScreen } from "./screens/GoodbyeScreen";
 import { WelcomeScreen } from "./screens/WelcomeScreen";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { CustomizedBeatLoader} from "./screens/CustomizedBeatLoader";
+import {BounceLoader, BarLoader, BeatLoader} from "react-spinners";
+//import { css } from '@emotion/react';
+
+ /* const loaderCSS = css`
+display: block;
+margin: 0 auto;
+border-color:red;
+
+css={loaderCSS}
+`  */
 
 
 function App() {
@@ -22,7 +31,7 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <div className="App">
-          <Suspense fallback={<div id="spinner" >Loading</div>}> 
+            <Suspense fallback={<BeatLoader  id="spinner" size={18}></BeatLoader>}>
               <Route path="/welcome" exact strict component={WelcomeScreen} />
               <Route path="/support" exact strict component={SupportScreen} />
               <Route

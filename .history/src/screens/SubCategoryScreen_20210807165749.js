@@ -251,7 +251,7 @@ export function SubCategoryScreen(props) {
             function={props.clickOnConcentration}
           ></Button>
           <br></br>
-          <img id="stress" alt="error" height="60" width="50" src={stressUrl}/>
+          <img id="stress" alt="error" height="60" width="55" src={stressUrl}/>
           <br></br>
           <Button
             text="Ich bin gestresst."
